@@ -7,6 +7,7 @@ import (
 	"github.com/NovaH00/go-process/command"
 )
 
+// NewCommand creates a new Command instance.
 func NewCommand(name string, args ...string) *command.Command {
 	return &command.Command{
 		Name:    name,
@@ -15,6 +16,7 @@ func NewCommand(name string, args ...string) *command.Command {
 	}
 }
 
+// NewCommandContext creates a new Command instance with a context.
 func NewCommandContext(ctx context.Context, name string, args ...string) *command.Command {
 	return &command.Command{
 		Name:    name,

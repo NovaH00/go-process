@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// Command represents a command to be executed, wrapping the standard os/exec.Cmd.
 type Command struct {
 	Name string
 	Args []string
