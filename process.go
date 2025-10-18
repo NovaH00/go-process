@@ -7,7 +7,7 @@ import (
 	"github.com/NovaH00/go-process/command"
 )
 
-func NewCommand(name string, args []string) *command.Command {
+func NewCommand(name string, args ...string) *command.Command {
 	return &command.Command{
 		Name:    name,
 		Args:    args,
@@ -15,7 +15,7 @@ func NewCommand(name string, args []string) *command.Command {
 	}
 }
 
-func NewCommandContext(ctx context.Context, name string, args []string) *command.Command {
+func NewCommandContext(ctx context.Context, name string, args ...string) *command.Command {
 	return &command.Command{
 		Name:    name,
 		Args:    args,
