@@ -34,7 +34,7 @@ func (c *Command) Start() (
 	c.pid = c.ExecCmd.Process.Pid
 	c.mu.Unlock()
 
-	return stderrPipe, stdoutPipe, nil
+	return stdoutPipe, stderrPipe, nil
 }
 
 func (c *Command) Wait() error {
