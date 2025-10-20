@@ -8,19 +8,21 @@ import (
 )
 
 // NewCommand creates a new Command instance.
-func NewCommand(name string, args ...string) *command.Command {
+func NewCommand(withNewProcessGroup bool, name string, args ...string) *command.Command {
 	return &command.Command{
-		Name:    name,
-		Args:    args,
-		ExecCmd: exec.Command(name, args...),
+		Name:                name,
+		Args:                args,
+		ExecCmd:             exec.Command(name, args...),
+		WithNewProcessGroup: withNewProcessGroup,
 	}
 }
 
 // NewCommandContext creates a new Command instance with a context.
-func NewCommandContext(ctx context.Context, name string, args ...string) *command.Command {
+func NewCommandContext(ctx context.Context, withNewProcessGroup bool, name string, args ...string) *command.Command {
 	return &command.Command{
-		Name:    name,
-		Args:    args,
-		ExecCmd: exec.CommandContext(ctx, name, args...),
+		Name:                name,
+		Args:                args,
+		ExecCmd:             exec.CommandContext(ctx, name, args...),
+		WithNewProcessGroup: withNewProcessGroup,
 	}
 }
