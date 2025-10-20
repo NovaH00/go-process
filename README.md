@@ -10,6 +10,8 @@ Go Process is a simple library for managing system processes in Go. It provides 
 
 ## Usage
 
+The `NewCommand` and `NewCommandContext` functions accept a boolean `withNewProcessGroup` parameter. If this is set to `true`, the command will be executed in a new process group. This allows you to terminate the entire process group, including any child processes, by calling the `Terminate()` method.
+
 ```go
 package main
 
@@ -23,7 +25,7 @@ import (
 
 func main() {
 	// Create a new command
-	cmd := process.NewCommand("sleep", "5")
+	cmd := process.NewCommand(false, "sleep", "5")
 
 	// Start the command
 	stdout, stderr, err := cmd.Start()
